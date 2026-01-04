@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Объявляем, что приложение использует эти функции, но они не обязательны для его работы -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <!-- =================== НУЖНЫЕ РАЗРЕШЕНИЯ =================== -->
+    
+    <!-- Для доступа в интернет (WebView в поиске) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Для новой, точной геолокации -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Для использования камеры -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Для совершения звонков из контактов -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- Для чтения контактов из телефонной книги -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- 
+    УДАЛЕНЫ СЛЕДУЮЩИЕ РАЗРЕШЕНИЯ:
+    - android.permission.SEND_SMS (больше не нужен, используем Intent)
+    - android.permission.RECEIVE_SMS (никогда не использовался)
+    - android.permission.WRITE_CONTACTS (никогда не использовался)
+    - android.permission.WRITE_EXTERNAL_STORAGE (устарел для наших целей)
+    - android.permission.READ_EXTERNAL_STORAGE (устарел для наших целей)
+    -->
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DiaryOfPlases"
+        tools:targetApi="31">
+
+        <!-- 
+        УДАЛЕНА ДЕКЛАРАЦИЯ SpeakService, ТАК КАК ЭТОТ КЛАСС БОЛЬШЕ НЕ СУЩЕСТВУЕТ
+        -->
+
+        <!-- Ресиверы теперь НЕ ЭКСПОРТИРУЮТСЯ, так как они нужны только внутри приложения -->
+        <receiver
+            android:name=".InternetConnectorReceiver"
+            android:enabled="true"
+            android:exported="false" />
+        <receiver
+            android:name=".LocationUpdateReciver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!-- 
+        Все активности, кроме главной, теперь НЕ ЭКСПОРТИРУЮТСЯ для безопасности
+        -->
+        <activity
+            android:name=".MyLocation"
+            android:exported="false" />
+        <activity
+            android:name=".Search"
+            android:exported="false" />
+        <activity
+            android:name=".ViewPlaces"
+            android:exported="false" />
+        <activity
+            android:name=".AddPlace"
+            android:exported="false" />
+        <activity
+            android:name=".AddInnerContact"
+            android:exported="false" />
+        <activity
+            android:name=".Emergency"
+            android:exported="false" />
+        <activity
+            android:name=".InnerContacts"
+            android:exported="false" />
+        <activity
+            android:name=".MainChoise"
+            android:exported="false" />
+        <activity
+            android:name=".StartChoise"
+            android:exported="false" />
+        <activity
+            android:name=".Guide"
+            android:exported="false" />
+        <activity
+            android:name=".Credits"
+            android:exported="false" />
+        <activity
+            android:name=".OnlyInfo"
+            android:exported="false" />
+        <activity
+            android:name=".LogOrReg"
+            android:exported="false" />
+        
+        <!-- Главная активность (точка входа) - единственная, которая должна быть экспортируемой -->
+        <activity
+            android:name=".Start"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- FileProvider для камеры -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.mikagorelik.diaryofplases.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/path" />
+        </provider>
+
+    </application>
+
+</manifest>

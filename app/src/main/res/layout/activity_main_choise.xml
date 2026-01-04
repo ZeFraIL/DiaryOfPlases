@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="30dp"
+    android:background="@drawable/bgtown"
+    tools:context=".MainChoise">
+
+    <Button
+        android:id="@+id/bAddPlace"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Add new place"
+        android:textSize="20sp"
+        android:layout_marginTop="60dp"/>
+
+    <Button
+        android:id="@+id/bViewPlaces"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="View places"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/bInfo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="View information"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="30dp"
+    android:background="@drawable/bgtown"
+    tools:context=".AddPlace">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:background="#FFFFFF"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/sansita"
+                android:textColor="#673AB7"
+                android:text="Build info about place\n(scroll up/down)" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:hint="   Name of place"
+                android:inputType="textPersonName"
+                android:drawableLeft="@drawable/place"
+                android:padding="7dp" />
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:drawableLeft="@drawable/comment"
+                android:hint="   Comment about place"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:lines="5"
+                android:padding="7dp" />
+
+            <Button
+                android:id="@+id/bLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Link for place" />
+
+            <Button
+                android:id="@+id/bGPS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:text="Add GPS of place" />
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/camera00" />
+
+            <Button
+                android:id="@+id/bSavePlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="35dp"
+                android:text="Save info about place" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

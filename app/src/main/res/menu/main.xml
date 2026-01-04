@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="Back"
+        android:id="@+id/back"
+        android:icon="@drawable/back"/>
+
+    <item
+        android:title="Exit"
+        android:id="@+id/exit"
+        android:icon="@drawable/exit"/>
+
+    <item
+        android:title="Credits"
+        android:id="@+id/credits"
+        android:icon="@drawable/credit"/>
+
+    <item
+        android:title="Guide"
+        android:id="@+id/guide"
+        android:icon="@drawable/guide"/>
+
+    <item
+        android:title="Contacts"
+        android:id="@+id/contacts"
+        android:icon="@drawable/contacts"/>
+
+    <item
+        android:title="Emergency"
+        android:id="@+id/emergency"
+        android:icon="@drawable/emergency"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="Speak ON"
+        android:id="@+id/speak_on"
+        android:icon="@drawable/speak"
+        app:showAsAction="always"/>
+
+    <item
+        android:title="Speack_OFF"
+        android:id="@+id/speak_off"
+        android:icon="@drawable/not_speak"
+        app:showAsAction="always"/>
+
+</menu>
